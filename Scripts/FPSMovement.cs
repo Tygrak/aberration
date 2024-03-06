@@ -17,6 +17,7 @@ public partial class FPSMovement : CharacterBody3D {
 		head = GetNode<Node3D>("Head");
 		camera = GetNode<Camera3D>("Head/Camera3D");
         cameraPos = camera.Position.Y;
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
     public override void _Process(double delta) {

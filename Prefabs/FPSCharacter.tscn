@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://tup83mwbiopv"]
+[gd_scene load_steps=7 format=3 uid="uid://tup83mwbiopv"]
 
 [ext_resource type="Script" path="res://Scripts/FPSMovement.cs" id="1_nld8t"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_kl0fw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i2viu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjutw"]
 radius = 0.35
+
+[sub_resource type="QuadMesh" id="QuadMesh_c216r"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w555d"]
+render_priority = 0
+shader = ExtResource("2_kl0fw")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
 
 [node name="FpsCharacter" type="CharacterBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -21,3 +31,9 @@ shape = SubResource("CapsuleShape3D_wjutw")
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0.680212, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.98718e-09, 0, -0.250499)
+mesh = SubResource("QuadMesh_c216r")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_w555d")

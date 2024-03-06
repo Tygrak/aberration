@@ -131,6 +131,6 @@ mesh = ExtResource("11_0tbew")
 skeleton = NodePath("../..")
 
 [node name="Window" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0990787, 0, 0)
 mesh = ExtResource("12_h8iq2")
 skeleton = NodePath("../..")
